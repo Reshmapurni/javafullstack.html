@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Resume</title>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Humanya sri</h1>
+    <h2>Python Developer</h2>
+    <p>Email: ventrapragadahumanyasri@gmail.com | Phone: 7989437525 | 
+       <a href="https://linkedin.com/in/ventrapragadahumanyasri">LinkedIn</a> | 
+       <a href="https://github.com/ventrapragadahumanyasri">GitHub</a></p>
+  </header>
+
+  <!-- Summary/About Me -->
+  <section>
+    <h2>About Me</h2>
+    <p>I am a passionate python developer with a love for clean code and responsive design. I enjoy solving problems and building useful python applications.</p>
+  </section>
+
+  <!-- Education -->
+  <section>
+    <h2>Education</h2>
+    <ul>
+      <li>BTech in Computer Science, SVIET, 2026</li>
+      <li>Intermediate, Sri chaitanya, 2022</li>
+    </ul>
+  </section>
+
+  <!-- Internship Experience -->
+  <section>
+    <h2>Internship Experience</h2>
+    <h3>Makhana using jupyter notebook--Codegnan</h3>
+    <p>Apr 2024 - June 2024</p>
+    <ul>
+      <li>Built responsive pages using python</li>
+      <li>Collaborated with backend team</li>
+    </ul>
+  </section>
+
+  <!-- Skills -->
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li>python</li>
+      <li>sql</li>
+      <li>back end</li>
+      <li>Teamwork</li>
+      <li>Communication</li>
+    </ul>
+  </section>
+
+  <!-- Projects -->
+  <section>
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>Web Scraping using Python:</strong> Web Scarping built with Python.</li>
+      <li><strong>Titanic:</strong> A simple task titanic using Python and jupyter notebook.</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Certifications: Chat box - IBM </p>
+    <p>&copy; 2025 Humanyasri</p>
+  </footer>
+
+</body>
+</html>
