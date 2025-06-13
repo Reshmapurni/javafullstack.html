@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InfoExpress - News Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+    }
+    header {
+      background-color: #ffffff;
+      padding: 20px;
+      border-bottom: 2px solid #eee;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      color: #2c3e50;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    nav ul li {
+      margin: 0 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .news-card {
+      display: flex;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      margin: 15px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    .news-card img {
+      width: 300px;
+      height: 150px;
+      object-fit: cover;
+    }
+    .news-content {
+      padding: 15px;
+    }
+    .news-content h3 {
+      margin-top: 0;
+      color: #444;
+    }
+    .news-content p {
+      margin: 10px 0;
+    }
+    .news-content a {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+    }
+    #about, #contact {
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #005f99;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fafafa;
+      border-top: 1px solid #eee;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>InfoExpress</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h2>Latest News</h2>
+
+    <div class="news-card">
+      <img src="https://via.placeholder.com/300x150" alt="News Image" />
+      <div class="news-content">
+        <h3>Tech: AI Changing the World</h3>
+        <p>Artificial Intelligence is transforming industries rapidly...</p>
+        <a href="#">Read more</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <img src="https://via.placeholder.com/300x150" alt="News Image" />
+      <div class="news-content">
+        <h3>Sports: India Wins Cricket Series</h3>
+        <p>In a thrilling final, India clinched the series against...</p>
+        <a href="#">Read more</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <img src="https://via.placeholder.com/300x150" alt="News Image" />
+      <div class="news-content">
+        <h3>Movies: New Blockbuster Released</h3>
+        <p>The latest action movie breaks all records at the box office...</p>
+        <a href="#">Read more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About InfoExpress</h2>
+    <p>InfoExpress is a student-built news portal that shares updates from Tech, Sports, Movies, and Education. This is a simple academic project demonstrating how HTML and CSS can be used to create clean and responsive web pages.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 InfoExpress. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
