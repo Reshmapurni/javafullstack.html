@@ -1,0 +1,141 @@
+class Class1
+{
+int a=10;
+int b=20;
+static int c=10;
+static int d=20;
+{
+System.out.println(a);
+System.out.println("instance block1 of class1");
+}
+{
+System.out.println(b);
+System.out.println("instance block2 of class1");
+}
+static{
+System.out.println(c);
+System.out.println("static block1 of class1");
+}
+static{
+System.out.println(d);
+System.out.println("static block2 of class1");
+}
+void add()
+ {
+  System.out.println(a+b);
+  System.out.println("instance method1 of class1");
+ }
+void sub()
+ {
+  System.out.println(b-a);
+  System.out.println("instance method2 of class1");
+ }
+static void add1()
+ {
+  System.out.println(c+d);
+  System.out.println("instance method1 of class1");
+ }
+static void sub1()
+ {
+  int a=40;
+  System.out.println(a-c);
+  System.out.println("instance method2 of class1");
+ }
+}
+
+
+
+
+class Class2
+{
+int p=1;
+int q=2;
+static int x=1;
+static int y=2;
+{
+System.out.println(p);
+System.out.println("instance block1 of class2");
+}
+{
+System.out.println(q);
+System.out.println("instance block2 of class2");
+}
+static{
+System.out.println(x);
+System.out.println("static block1 of class2");
+}
+static{
+System.out.println(y);
+System.out.println("static block2 of class2");
+}
+void mul()
+ {
+  System.out.println(p*q);
+  System.out.println("instance method1 of class2");
+ }
+void div()
+ {
+  System.out.println(p/q);
+  System.out.println("instance method2 of class2");
+ }
+static void mul1()
+ {
+  System.out.println(x*y);
+  System.out.println("static method1 of class1");
+ }
+static void div1()
+ {
+  int a=40;
+  System.out.println(y/x);
+  System.out.println("static method2 of class1");
+ }
+public static void main(String[] args)
+{
+Class1 c1=new Class1();
+Class2 c2=new Class2();
+c1.add();
+c1.sub();
+c2.mul();
+c2.div();
+c1.add1();
+c1.sub1();
+c2.mul1();
+c2.div1();
+}
+}
+
+Output:
+1
+static block1 of class2
+2
+static block2 of class2
+10
+static block1 of class1
+20
+static block2 of class1
+10
+instance block1 of class1
+20
+instance block2 of class1
+1
+instance block1 of class2
+2
+instance block2 of class2
+30
+instance method1 of class1
+10
+instance method2 of class1
+2
+instance method1 of class2
+0
+instance method2 of class2
+30
+instance method1 of class1
+30
+instance method2 of class1
+2
+static method1 of class1
+2
+static method2 of class1
+
+
