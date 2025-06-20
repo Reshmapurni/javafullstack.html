@@ -344,3 +344,101 @@ enter a number
 given number is palindrome
 */
 ---------------------------------------------------------------------
+/* Loop11
+    import java.util.Scanner;
+class Loop4
+{
+  public static void main(String[] args)
+  {
+    Scanner s=new Scanner(System.in);
+    int n,i,j=0;
+     System.out.println(" Enter range ");
+    n=s.nextInt();
+    int a[]=new int[n];
+    int b[]=new int[n];
+    for(i=1;i<=n;i++)
+    {
+      if(i%2==0)
+        { 
+         a[j]=i;
+          j++;
+         }
+      
+      else
+        {
+         b[j]=i;
+          
+        }
+     }
+
+    
+   for(i=0;i<(n/2);i++)
+    {
+      System.out.println("Even Number" +(i+1)+" " +a[i]);
+    }
+    
+   for(i=0;i<(n/2);i++)
+    {
+      System.out.println("odd Number" +(i+1)+" " +b[i]);
+    }
+  }
+}
+*/
+--------------------------------------------------------------------------------
+/* Loop12
+    import java.util.Scanner;
+class Gender
+{
+   public static void main(String[] args)
+   {
+     Scanner s=new Scanner(System.in);
+     char gender;
+     System.out.println("Enter gender (M/F):");
+     gender=s.next().charAt(0);
+     switch(gender)
+     {
+       case 'M':
+       case 'm':
+        {
+           System.out.println("Male");
+        }
+        case 'F':
+        case 'f':
+        {
+           System.out.println("Female");
+        }
+     }
+   }
+}
+*/
+------------------------------------------------------------------------------------
+/*
+import java.util.Scanner;
+class Largest3Num
+{
+  public static void main(String[] args)
+  {
+    Scanner s=new Scanner(System.in);
+    int a,b,c;
+    a=10;
+    b=20;
+    c=30;
+    if(a==b && b==c)
+     {
+        System.out.println(" All are same");
+     }
+    else if(a>=b && a>=c)
+     {
+       System.out.println(" The large number is:" +a);
+     }
+     else if(b>=a && b>=c)
+     {
+       System.out.println(" The large number is:" +b);
+     }
+      else
+       {
+          System.out.println(" The large number is:" +c);
+       }
+}
+}
+*/
