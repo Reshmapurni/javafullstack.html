@@ -1,0 +1,188 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import NewsList from './NewsList';
+import LoginPage from './LoginPage';
+import AdminDashboard from './AdminDashboard';
+import CreateEditPost from './CreateEditPost';
+import ProtectedRoute from './ProtectedRoute';
+
+function App() {
+  return (
+    <Router>
+      <nav>
+        <a href="/">News</a> | <a href="/login">Login</a> | <a href="/admin">Admin</a> | <a href="/user">User</a>
+      </nav>
+      <Routes>
+        <Route path="/" element={<NewsList />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute role="admin">
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/create"
+          element={
+            <ProtectedRoute role="admin">
+              <CreateEditPost />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/user"
+          element={
+            <ProtectedRoute role="user">
+              <div>User Page</div>
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+//App js
+_________________________________
+import React, { createContext, useContext, useState } from 'react';
+
+const AuthContext = createContext();
+
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
+
+  const login = (username, role) => {
+    const userData = { username, role };
+    setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData));
+  };
+
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem('user');
+  };
+
+  return (
+    <AuthContext.Provider value={{ user, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export function useAuth() {
+  return useContext(AuthContext);
+}
+//AuthContext js
+________________________________
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
+
+export default function ProtectedRoute({ role, children }) {
+  const { user } = useAuth();
+
+  if (!user) return <Navigate to="/login" />;
+  if (role && user.role !== role) return <Navigate to="/" />;
+
+  return children;
+}
+//ProtectedRoute js
+__________________________import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
+
+export default function LoginPage() {
+  const [username, setUsername] = useState('');
+  const [role, setRole] = useState('user');
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(username, role);
+    if (role === 'admin') {
+      navigate('/admin');
+    } else {
+      navigate('/user');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        /><br />
+        <select value={role} onChange={(e) => setRole(e.target.value)}>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select><br />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
+}
+//LoginPage.js
+_______________________________
+import React from 'react';
+
+export default function NewsList() {
+  return (
+    <div>
+      <h2>News Blog</h2>
+      <p>All news posts will be shown here (public).</p>
+    </div>
+  );
+}
+//NewsList js
+________________________________
+import React from 'react';
+import { useAuth } from './AuthContext';
+
+export default function AdminDashboard() {
+  const { logout } = useAuth();
+
+  return (
+    <div>
+      <h2>Admin Dashboard</h2>
+      <button onClick={logout}>Logout</button>
+    </div>
+  );
+}
+//AdminDashboard js
+________________________________
+import React from 'react';
+
+export default function CreateEditPost() {
+  return (
+    <div>
+      <h2>Create or Edit News Post</h2>
+      <p>Form to add/edit news will go here.</p>
+    </div>
+  );
+}
+//CreateEditPost.js
+__________________________________
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { AuthProvider } from './AuthContext';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <AuthProvider>
+    <App />
+  </AuthProvider>
+);
+//index js
+___________________________________
